@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+:host {
+    color: blue;
+    section, button, div, p, article {
+        margin: 16px;
+        width: fit-content;
+    }
+    button {
+        margin-top: 0px; 
+        margin-bottom: 0px;
+    }
+    div {
+        height: 1em;
+        border: 2px solid black;
+        border-radius: 4px;
+        width: 10em;
+        overflow: hidden;
+    }
+}
