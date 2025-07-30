@@ -1,14 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import {User} from './user/user';
-import { Child } from "./child/child";
-import { Comments } from "./comments/comments";
-import { NgOptimizedImage } from '@angular/common';
+import { RouterOutlet, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterLink],
   templateUrl:`app.html`,
   styleUrl: './app.scss'
 })
