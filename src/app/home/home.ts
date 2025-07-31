@@ -1,8 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import {User} from '../user/user';
 import { Child } from "../child/child";
 import { Comments } from "../comments/comments";
 import { NgOptimizedImage } from '@angular/common';
+import { CarService } from '../car-service/car-service';
 
 @Component({
   selector: 'app-person',
@@ -20,6 +21,7 @@ export class Person {
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
+
 export class Home {
   //Updating the Component Class
   protected readonly title = signal('portfolio');
@@ -50,4 +52,9 @@ export class Home {
   logoUrl = 'assets/logo.png';
   logoAlt = 'Angular logo';
 
+  //Creating an injectable service
+  carService = inject(CarService);
+
+  //Inject-based dependency injection
+  display = this.carService.getCars().join(' ⭐️ ');
 }
