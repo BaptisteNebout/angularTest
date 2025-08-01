@@ -2,8 +2,10 @@ import { Component, inject, signal } from '@angular/core';
 import {User} from '../user/user';
 import { Child } from "../child/child";
 import { Comments } from "../comments/comments";
-import { NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage, UpperCasePipe, LowerCasePipe, DecimalPipe, DatePipe, CurrencyPipe } from '@angular/common';
 import { CarService } from '../car-service/car-service';
+import { ReversePipe } from '../pipe/reverse.pipe-pipe';
+
 
 @Component({
   selector: 'app-person',
@@ -17,7 +19,7 @@ export class Person {
 
 @Component({
   selector: 'app-home',
-  imports: [ Person, User, Child, Comments, NgOptimizedImage],
+  imports: [ Person, User, Child, Comments, NgOptimizedImage, UpperCasePipe, LowerCasePipe, DecimalPipe, DatePipe, CurrencyPipe, ReversePipe ],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
@@ -57,4 +59,9 @@ export class Home {
 
   //Inject-based dependency injection
   display = this.carService.getCars().join(' ⭐️ ');
+
+  //Formatting data with pipes
+  num = 103.1234;
+  birthday = new Date(2023, 3, 2);
+  cost = 4560.34;
 }
